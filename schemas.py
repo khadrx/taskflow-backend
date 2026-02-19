@@ -4,14 +4,14 @@ from typing import Optional
 from enum import Enum
 
 class TaskStatus(str, Enum):
-    todo = "todo"
-    in_progress = "in-progress"
-    done = "done"
+    TODO = "todo"
+    IN_PROGRESS = "in_progress"   # ← underscore بدل شرطة
+    DONE = "done"
 
 class TaskPriority(str, Enum):
-    low = "low"
-    medium = "medium"
-    high = "high"
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -24,7 +24,7 @@ class UserOut(BaseModel):
     name: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # ← أفضل من orm_mode في Pydantic v2
 
 class Token(BaseModel):
     access_token: str
@@ -36,8 +36,8 @@ class TokenData(BaseModel):
 class TaskBase(BaseModel):
     title: str
     description: Optional[str] = None
-    status: TaskStatus = TaskStatus.todo
-    priority: TaskPriority = TaskPriority.medium
+    status: TaskStatus = TaskStatus.TODO
+    priority: TaskPriority = TaskPriority.MEDIUM
     due_date: Optional[datetime] = None
 
 class TaskCreate(TaskBase):
@@ -53,4 +53,4 @@ class TaskOut(TaskBase):
     owner_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True

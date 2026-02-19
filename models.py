@@ -6,7 +6,7 @@ import enum
 
 class TaskStatus(enum.Enum):
     todo = "todo"
-    in_progress = "in-progress"
+    in_progress = "in_progress"
     done = "done"
 
 class TaskPriority(enum.Enum):
