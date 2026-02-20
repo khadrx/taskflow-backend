@@ -1,8 +1,18 @@
+# database.py
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:2423@localhost:5432/taskflow"
+# Load environment variables from .env file
+load_dotenv()
+
+# Read DATABASE_URL from .env (or fallback to hardcoded for local dev)
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
+
+if not SQLALCHEMY_DATABASE_URL:
+    raise ValueError("DATABASE_URL not found in environment variables or .env file")
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
