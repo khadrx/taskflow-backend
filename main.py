@@ -11,7 +11,8 @@ app.add_middleware(
         "https://localhost:3000",
         "https://taskflow-portfolio.vercel.app",
         "https://www.taskflow-portfolio.vercel.app",
-        "https://taskflow-portfolio-git-main-khadr.vercel.app",
+        "https://taskflow-portfolio-git-main-khadr-projects.vercel.app/",
+        "https://taskflow-portfolio-8smxqnm9y-khadr-projects.vercel.app/",
         "*"
     ],
     allow_credentials=True,
