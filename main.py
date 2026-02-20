@@ -6,7 +6,14 @@ app = FastAPI(title="TaskFlow Backend")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://taskflow-portfolio.vercel.app/"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://localhost:3000",
+        "https://taskflow-portfolio.vercel.app",
+        "https://www.taskflow-portfolio.vercel.app",
+        "https://taskflow-portfolio-git-main-khadr.vercel.app",
+        "*"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
