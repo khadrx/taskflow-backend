@@ -16,7 +16,7 @@ from models import User
 load_dotenv()
 
 # Read from environment variables (with safe defaults for local dev)
-SECRET_KEY = os.getenv("SECRET_KEY", "your-super-long-random-secret-here-change-me")
+SECRET_KEY = os.getenv("SECRET_KEY", "a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6A7B8C9D0E1F2G3H4")
 ALGORITHM = os.getenv("ALGORITHM", "HS256")
 ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", 1440))  # 24 ساعة افتراضي
 
